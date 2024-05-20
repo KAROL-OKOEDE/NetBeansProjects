@@ -1,0 +1,276 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+package making.calls.to.servermultiple.client;
+
+import static java.awt.SystemColor.info;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.lang.ProcessHandle.Info;
+import static java.lang.String.format;
+import java.net.ServerSocket;
+import java.net.Socket;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.SourceDataLine;
+import javax.sound.sampled.TargetDataLine;
+
+/**
+ *
+ * @author LENOVO
+ */
+public class ServerCall extends javax.swing.JFrame {
+
+    private ServerThread serverThread;
+
+    /**
+     * Creates new form Server
+     */
+    public ServerCall() {
+        initComponents();
+
+    }
+
+    private void startServer() {
+        if (serverThread == null || !serverThread.isAlive()) {
+            serverThread = new ServerThread();
+            serverThread.start();
+        }
+    }
+
+    private void stopServer() {
+        if (serverThread != null && serverThread.isAlive()) {
+            serverThread.stopServer();
+        }
+    }
+
+    private class ServerThread extends Thread {
+
+        private ServerSocket serverSocket;
+
+        @Override
+        public void run() {
+            try {
+// Set up audio capture
+                AudioFormat captureFormat = new AudioFormat(8000.0f, 16, 1, true, true);
+                DataLine.Info captureInfo = new DataLine.Info(TargetDataLine.class, captureFormat);
+                TargetDataLine targetLine = (TargetDataLine) AudioSystem.getLine(captureInfo);
+                targetLine.open(captureFormat);
+                targetLine.start();
+
+// Set up audio playback
+                AudioFormat playbackFormat = new AudioFormat(8000.0f, 16, 1, true, true);
+                DataLine.Info playbackInfo = new DataLine.Info(SourceDataLine.class, playbackFormat);
+                SourceDataLine sourceLine = (SourceDataLine) AudioSystem.getLine( playbackInfo);
+sourceLine.open(playbackFormat);
+                sourceLine.start();
+
+                serverSocket = new ServerSocket(1234);
+                jTextArea1.append("Server is running. Waiting for clients...\n");
+
+while (!Thread.interrupted()) {
+                    Socket clientSocket = serverSocket.accept();
+                    jTextArea1.append( "Client connected: ");
+
+OutputStream outputStream = clientSocket.getOutputStream();
+                    InputStream inputStream = clientSocket.getInputStream();
+
+                    byte[] usernameBytes = new byte[1024];
+                    int bytesRead = inputStream.read(usernameBytes);
+                    String username = new String(usernameBytes, 0, bytesRead);
+                    jTextArea1.append(username + " connected\n");
+
+                    Thread clientThread = new Thread(() ->{
+
+                        
+                            try {
+byte[] buffer = new byte[1024];
+                            while (true) {
+                                int bytesRead1 = inputStream.read(buffer);
+                                
+sourceLine.write(buffer, 0, bytesRead1);
+                            }
+                        }
+                        catch (IOException e
+
+                        
+                            ) {
+e.printStackTrace();
+                        }
+                    }
+                    );
+clientThread.start();
+                    Thread sendThread = new Thread(()  -> {
+
+                        
+                            try{
+byte[] buffer = new byte[1024];
+                            while (true) {
+
+                                int bytesRead1 = targetLine.read(buffer, 0, buffer.length);
+                                outputStream.write(buffer, 0, bytesRead1);
+                            }
+                        }
+                        catch (IOException e
+
+                        
+                            ) {
+e.printStackTrace();
+                        }
+                    }
+                    ); 
+sendThread.start();
+                }
+            } catch (LineUnavailableException | IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        public void stopServer() {
+            try {
+                if (serverSocket != null && !serverSocket.isClosed()) {
+                }
+                serverSocket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+
+            }
+        }
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButton1.setText("Start server");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Stop Server");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(49, 49, 49))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(69, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        startServer();
+        jButton1.setEnabled(false);
+        jButton2.setEnabled(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        stopServer();
+        jButton1.setEnabled(true);
+        jButton2.setEnabled(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ServerCall.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ServerCall.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ServerCall.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ServerCall.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ServerCall().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    // End of variables declaration//GEN-END:variables
+}

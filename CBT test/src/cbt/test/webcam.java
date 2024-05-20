@@ -6,7 +6,7 @@ package cbt.test;
 
 import java.awt.Graphics;
 import java.awt.Image;
-import static java.awt.Image.SCALE_DEFAULT;
+//import static java.awt.Image.SCALE_DEFAULT;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -108,6 +108,7 @@ public class webcam extends javax.swing.JFrame {
                 jLabel1.setIcon(imageicon);
                 ImageIcon imageico = new ImageIcon(new ImageIcon(Filename).getImage().getScaledInstance(image.jLabel8.getWidth(), image.jLabel8.getHeight(), Image.SCALE_DEFAULT));
                 image.jLabel8.(imageico);
+               
 
             }
         } catch (Exception e) {
