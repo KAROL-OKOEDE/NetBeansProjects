@@ -16,10 +16,7 @@ import javax.sound.sampled.SourceDataLine;
 import javax.sound.sampled.TargetDataLine;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author LENOVO
- */
+ 
 public class ClientCall extends javax.swing.JFrame {
 
     private Socket socket;

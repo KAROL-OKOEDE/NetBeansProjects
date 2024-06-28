@@ -665,9 +665,9 @@ public final class salesPage extends javax.swing.JFrame {
         );
 
         jPanel3.setBackground(new java.awt.Color(250, 250, 250));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), 2));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), null));
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), 2));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), null));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Price:");
@@ -741,7 +741,7 @@ public final class salesPage extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Stock Items");
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), 2));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), null));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setText("Price:");
@@ -812,7 +812,7 @@ public final class salesPage extends javax.swing.JFrame {
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), 2));
+        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), null));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel16.setText("Price:");
@@ -881,7 +881,7 @@ public final class salesPage extends javax.swing.JFrame {
                     .addComponent(jLabel20)))
         );
 
-        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), 2));
+        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), null));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel22.setText("Price:");
@@ -951,7 +951,7 @@ public final class salesPage extends javax.swing.JFrame {
                     .addComponent(jLabel26)))
         );
 
-        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), 2));
+        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), null));
 
         jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel28.setText("Price:");
@@ -1022,7 +1022,7 @@ public final class salesPage extends javax.swing.JFrame {
                     .addComponent(jLabel32)))
         );
 
-        jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), 2));
+        jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), null));
 
         jLabel40.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel40.setText("Price:");
@@ -1092,7 +1092,7 @@ public final class salesPage extends javax.swing.JFrame {
                     .addComponent(jLabel44)))
         );
 
-        jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), 2));
+        jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), null));
 
         jLabel46.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel46.setText("Price:");
@@ -1163,7 +1163,7 @@ public final class salesPage extends javax.swing.JFrame {
                     .addComponent(jLabel50)))
         );
 
-        jPanel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), 2));
+        jPanel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), null));
 
         jLabel51.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
@@ -1239,7 +1239,7 @@ public final class salesPage extends javax.swing.JFrame {
                     .addComponent(jLabel56)))
         );
 
-        jPanel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), 2));
+        jPanel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), null));
 
         jLabel58.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel58.setText("Price:");
@@ -1310,7 +1310,7 @@ public final class salesPage extends javax.swing.JFrame {
                     .addComponent(jLabel62)))
         );
 
-        jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), 2));
+        jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), null));
 
         jLabel64.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel64.setText("Price:");
@@ -1380,7 +1380,7 @@ public final class salesPage extends javax.swing.JFrame {
                     .addComponent(jLabel68)))
         );
 
-        jPanel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), 2));
+        jPanel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), null));
 
         jLabel70.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel70.setText("Price:");
@@ -1451,7 +1451,7 @@ public final class salesPage extends javax.swing.JFrame {
                     .addComponent(jLabel74)))
         );
 
-        jPanel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), 2));
+        jPanel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), null));
 
         jLabel76.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel76.setText("Price:");
@@ -1608,7 +1608,7 @@ public final class salesPage extends javax.swing.JFrame {
         );
 
         jPanel21.setBackground(new java.awt.Color(250, 250, 250));
-        jPanel21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), 2));
+        jPanel21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), null));
 
         btnTotal.setBackground(new java.awt.Color(255, 102, 255));
         btnTotal.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -1680,7 +1680,7 @@ public final class salesPage extends javax.swing.JFrame {
         );
 
         jPanel22.setBackground(new java.awt.Color(250, 250, 250));
-        jPanel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), 2));
+        jPanel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230), null));
 
         jTextArea.setColumns(20);
         jTextArea.setRows(5);

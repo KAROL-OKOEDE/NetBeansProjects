@@ -24,7 +24,7 @@ public class AESencryption extends javax.swing.JFrame {
  byte[] encryptedText;
  byte[] getEncryptedText;
  String decryptedText;
- count c =new count();
+ //count c =new count();
  
     /**
      * Creates new form AESencryption

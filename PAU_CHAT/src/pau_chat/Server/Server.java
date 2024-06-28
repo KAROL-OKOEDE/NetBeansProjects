@@ -41,7 +41,7 @@ public class Server extends javax.swing.JFrame {
         Date date = new Date();
         jTextArea1.append(msg + "\n");
             }
-    public void setSocketList(Socket socket) {
+ public void setSocketList(Socket socket) {
         try {
             socketList.add(socket);
         } catch (Exception e) {
@@ -52,32 +52,12 @@ public class Server extends javax.swing.JFrame {
     public void setClientList(String client) {
         try {
             clientList.add(client);
-            
+
         } catch (Exception e) {
-         
+
         }
     }
 
-    public void setClientFileSharingUsername(String user) {
-        try {
-            clientFileSharingUsername.add(user);
-        } catch (Exception e) {
-        }
-    }
-
-    public void setClientFileSharingSocket(Socket soc) {
-        try {
-            clientFileSharingSocket.add(soc);
-        } catch (Exception e) {
-        }
-    }
-
-    /**
-     * Getters
-     *
-     * @param client
-     * @return  *
-     */
     public Socket getClientList(String client) {
         Socket tsoc = null;
         for (int x = 0; x < clientList.size(); x++) {
@@ -96,11 +76,27 @@ public class Server extends javax.swing.JFrame {
                     clientList.removeElementAt(x);
                     socketList.removeElementAt(x);
                     appendMessage("Removed " + client);
+
+                    //put sound stuff here
                     break;
                 }
             }
         } catch (Exception e) {
-           
+
+        }
+    }
+
+    public void setClientFileSharingUsername(String user) {
+        try {
+            clientFileSharingUsername.add(user);
+        } catch (Exception e) {
+        }
+    }
+
+    public void setClientFileSharingSocket(Socket soc) {
+        try {
+            clientFileSharingSocket.add(soc);
+        } catch (Exception e) {
         }
     }
 
@@ -131,13 +127,12 @@ public class Server extends javax.swing.JFrame {
                     appendMessage("Removed " + username);
                 } catch (IOException e) {
                     System.err.println(e);
-                   
+
                 }
                 break;
             }
         }
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
